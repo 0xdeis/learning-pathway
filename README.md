@@ -5,7 +5,7 @@
 >
 > -- https://www.youtube.com/watch?v=2TofunAI6fU
 
-Learning how to program $<=>$ learning how to hack.
+Learning how to program $\iff$ learning how to hack.
 
 Before getting into hacking things, you first have to understand how they work.
 If you want to hack websites, you first need to understand how they work, then you can begin to find bugs.
