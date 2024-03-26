@@ -76,7 +76,40 @@ The internet, the thing that allows computers to talk to each other, is a comple
 As Jon points out, metal models are very important for understanding complex topics. By the time you complete these exercises, you should have a strong mental model of how the internet works. When thinking about how some program works, you should be able to abstract away the parts that don't matter and focus on the details that do.
 
 - https://www.youtube.com/watch?v=d-zn-wv4Di8
+
+Short burpsuite exercise
+
+1. Open up burpsuite
+2. go to the proxy tab
+3. turn on interception and open the browser
+4. go to <https://google.com>
+
+5. What is your HTTP version?
+6. What is your User Agent?
+
+Short wireshark exercise
+
+1. open wireshark
+2. select your wireless interface
+3. go to a http website (NOT HTTPS)
+4. filter for `http`
+5. select a packet > right click > follow > HTTP stream
+6. look through the traffic
+
 - https://www.youtube.com/watch?v=6G14NrjekLQ
+
+short netcat exercise
+
+1. open two terminals ([S]erver and [C]lient)
+2. on S, run `nc -lvnp 9999`
+  - `-l` listen
+  - `-v` verbose output
+  - `-n` do not perform DNS
+  - `-p` listen port
+3. on C, run `nc 127.0.0.1 9999`
+4. type something into C, look at S
+5. type something into S, look at C
+
 - https://www.youtube.com/watch?v=VXmvM2QtuMU
 - https://tryhackme.com/room/whatisnetworking
 - https://tryhackme.com/room/introtolan
