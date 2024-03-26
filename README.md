@@ -16,6 +16,7 @@ Maybe even make a few websites to really see how everything fits together, and t
 
 ### The Shell and Linux
 
+> [!NOTE]
 > If you already know this stuff, move on to the next section
 
 When hacking pretty much anything (online), there are some tools that you end up using a lot. 
