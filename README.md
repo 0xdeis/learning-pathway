@@ -1,5 +1,6 @@
-# BCSC Learning Pathway
+<!-- @format -->
 
+# BCSC Learning Pathway
 
 > Programmers and hackers use the same knowledge, they just think differently.
 >
@@ -11,66 +12,78 @@ Before getting into hacking things, you first have to understand how they work.
 If you want to hack websites, you first need to understand how they work, then you can begin to find bugs.
 Maybe even make a few websites to really see how everything fits together, and then try to break things.
 
-
 ## Fundamentals
 
 ### The Shell and Linux
 
+<!-- [!NOTE] syntax -->
+<!-- https://github.com/orgs/community/discussions/16925 -->
 > [!NOTE]
 > If you already know this stuff, move on to the next section
 
-When hacking pretty much anything (online), there are some tools that you end up using a lot. 
+When hacking pretty much anything (online), there are some tools that you end up using a lot.
 It's definitely worth learning these tools in and out, because
- - knowing the capabilities of these tools gives you ideas when hacking
- - learning how they work gives you specific knowledge about the underlying technology
 
- The terminal (or shell or command line) is the most powerful way to use a tool. 
- Most UIs have to be dumbed down because showing the user 200 buttons, text inputs, and sliders would be way too much information to process and get familiar with.
+- knowing the capabilities of these tools gives you ideas when hacking
+- learning how they work gives you specific knowledge about the underlying technology
+
+The terminal (or shell or command line) is the most powerful way to use most tools.
+Most GUIs (graphical user interfaces) have to be dumbed down because showing the user 200 buttons, text inputs, and sliders would be way too much information to process and get familiar with.
 
 That's where the command line interface (CLI) comes in.
 
-All CLI tools can do the exact same thing a GUI (graphical user interface) can, they just use text instead of buttons and text boxes. The text-only approach ends up being much faster most of the time, and its much easier to have multiple tools running at the same time.
+All CLI tools can do the exact same thing a GUI can, they just use a single line of text instead of many buttons and text boxes.
+Most of the time, the text-only approach ends up letting you do what you want faster and with less mental overhead.
 
-<!-- For example, if I wanted to rename a file in a GUI, I would open my file explorer, navigate to where the file is, right click on it, and then type the new name into the input box. -->
-<!---->
-<!-- For the CLI, I would just type -->
-<!---->
-<!-- ``` -->
-<!-- mv /path/to/old.txt /path/to/new.txt -->
-<!-- # or even -->
-<!-- mv old.txt new.txt -->
-<!-- ``` -->
+Luckily, there is a fun and interactive way to learn the most common tools. Plus, once you learn a few, the rest are super easy to pick up.
 
-The best way to learn how to use the terminal is by using it. There is this fun game based around learning different command line tools called Bandit. I suggest going through the entire thing before moving on to the next section.
+Head over to [https://overthewire.org/wargames/bandit/](https://overthewire.org/wargames/bandit/) and don't come back until you're done. If you get stuck, try one more out of the box thing, and then head to the hints page (TODO).
 
+### Markdown
 
-## Markdown
-
+> [!NOTE]
 > If you already know this stuff, move on to the next section
+
+Markdown is a _very_ simple formatting language that makes your writing clear. (This document was written in markdown.) If you are familiar with HTML, I would suggest to take a quick look over the syntax (Markdown transpiles to HTML and all HTML is valid markdown). Otherwise, here's an interactive guide to learning the syntax.
 
 - https://www.markdowntutorial.com/
 
-## Scripting Languages
+### Scripting Languages
+
+> [!NOTE]
+> If you already know this stuff, move on to the next section
+
+When hacking, sometimes the shell isn't enough. Bash (or Zsh) are powerful languages, but once you start needing `if` statement or `for` loops, they start to get annoying. That's where simple languages like python and javascript help out. I would recommend python because they have an awesome library `pwntools` that makes automating a lot of repetitive stuff easy.
 
 - python https://tryhackme.com/r/room/pythonbasics
-- javascript (as a scripting language)
 
+Read through the first part of the `pwntools` docs and try to automate the first levels 5 of Bandit.
 
-<!-- ## Fundamental Knowledge -->
-<!---->
-<!-- - how does the internet work (networking)? -->
-<!-- - how do websites work (client-server)? -->
-<!---->
-<!-- ### Networking -->
-<!---->
-<!-- - how does the internet work? -->
-<!--     - https://www.youtube.com/watch?v=6G14NrjekLQ -->
-<!--     - https://www.youtube.com/watch?v=d-zn-wv4Di8 -->
-<!--     - https://www.youtube.com/watch?v=VXmvM2QtuMU -->
-<!--     - https://tryhackme.com/room/whatisnetworking -->
-<!--     - https://tryhackme.com/room/introtolan -->
-<!--     - https://tryhackme.com/room/introtonetworking -->
-<!---->
+- https://docs.pwntools.com/en/stable/intro.html
+- https://github.com/Gallopsled/pwntools-tutorial
+
+## Computer Networks
+
+One of the reasons computers are as useful as they are today is because of their ability to communicate with each other.
+
+The internet, the thing that allows computers to talk to each other, is a complex collection of technologies and concepts. The seemingly simple task of loading <https://google.com> in your browser probably took over 10 computers to complete.
+
+> As you encounter more complex code, you’ll need a more accurate mental model to help you reason through what the programs are really doing.
+>
+> -- Jon Gjengset (Rust for Rustaceans, 2021)
+<!-- rust mentioned !!! -->
+
+As Jon points out, metal models are very important for understanding complex topics. By the time you complete these exercises, you should have a strong mental model of how the internet works. When thinking about how some program works, you should be able to abstract away the parts that don't matter and focus on the details that do.
+
+- https://www.youtube.com/watch?v=d-zn-wv4Di8
+- https://www.youtube.com/watch?v=6G14NrjekLQ
+- https://www.youtube.com/watch?v=VXmvM2QtuMU
+- https://tryhackme.com/room/whatisnetworking
+- https://tryhackme.com/room/introtolan
+- https://tryhackme.com/room/introtonetworking
+
+## Web
+
 <!-- at the end, should be able to explain -->
 <!--  - what happens when you type https://google.com into your browser? How does the response get to you? -->
 <!--    - DNS -->
