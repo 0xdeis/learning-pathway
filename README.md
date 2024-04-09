@@ -437,6 +437,83 @@ func main() {
 
 Other than a database (and the front end), this is all we need to make a good todo app.
 
+Lets start with reading and creating todos
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func Logger(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		requestPath := r.URL.Path
+		log.Println(r.Method, requestPath)
+		next.ServeHTTP(w, r)
+	})
+}
+
+type Todo struct {
+	Task string
+	Done bool
+}
+
+func NewTodo(task string) Todo {
+	return Todo{
+		Task: task,
+		Done: false,
+	}
+}
+
+func main() {
+	todos := []Todo{}
+	todos = append(todos, NewTodo("make slides"))
+	todos = append(todos, NewTodo("do laundry"))
+
+	router := http.NewServeMux()
+
+	router.HandleFunc("GET /api/todo", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "%+v\n", todos) // + to print struct field names
+	})
+
+	router.HandleFunc("POST /api/todo", func(w http.ResponseWriter, r *http.Request) {
+		err := r.ParseForm()
+		if err != nil {
+			http.Error(w, "bad formdata", 400)
+			return
+		}
+
+		task := r.Form.Get("task")
+		todos = append(todos, NewTodo(task))
+
+		w.WriteHeader(201)
+		fmt.Fprintf(w, "%+v\n", todos) // + to print struct field names
+	})
+
+	server := http.Server{
+		Addr:    "127.0.0.1:8080",
+		Handler: Logger(router),
+	}
+
+	log.Println("Starting server on port http://127.0.0.1:8080")
+
+	server.ListenAndServe()
+}
+```
+
+```bash
+curl http://localhost:8080/api/todo
+
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "task=hi" http://localhost:8080/api/todo
+
+curl http://localhost:8080/api/todo
+```
+
+Ok, now lets handle updating and deleting. If we want to change a todos `Done` field from `false` to `true`, we don't have a way of addressing a specific todo item. One way is to assign an ID to each todo item when it is created.
+
 <!-- at the end, should be able to explain -->
 <!--  - what happens when you type https://google.com into your browser? How does the response get to you? -->
 <!--    - DNS -->
