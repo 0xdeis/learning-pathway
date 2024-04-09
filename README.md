@@ -421,7 +421,7 @@ func main() {
 
 	v1 := http.NewServeMux()
 	v1.Handle("/v1/", http.StripPrefix("/v1", router))
-	v1.Handle("/v1/", http.StripPrefix("/v1", authRouter))
+	v1.Handle("/v1/auth/", http.StripPrefix("/v1/auth", authRouter))
 
 	server := http.Server{
 		Addr:    "127.0.0.1:8080",
@@ -435,7 +435,7 @@ func main() {
 }
 ```
 
-Other than a database (and the front end), this is all we need to make a good todo app. 
+Other than a database (and the front end), this is all we need to make a good todo app.
 
 <!-- at the end, should be able to explain -->
 <!--  - what happens when you type https://google.com into your browser? How does the response get to you? -->
